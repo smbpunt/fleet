@@ -1,0 +1,32 @@
+{
+    "name": "punt/fleet",
+    "description": "fulll fleet app",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Punt\\Fleet\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Punt\\Fleet\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bastien NICOLAU",
+            "email": "nicolau.bastien@proton.me"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phpstan/phpstan": "^2.1",
+        "phpmd/phpmd": "^2.15",
+        "behat/behat": "^3.22",
+        "phpunit/phpunit": "^11.5"
+    }
+}
