@@ -14,7 +14,7 @@ final class Fleet
     private array $vehicles = [];
 
     private function __construct(
-        public readonly string $userId,
+        private readonly string $userId,
     ) {}
 
     public static function create(string $userId): self
@@ -44,5 +44,10 @@ final class Fleet
         }
 
         return false;
+    }
+
+    public function getUserId(): string
+    {
+        return $this->userId;
     }
 }
