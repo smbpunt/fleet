@@ -4,32 +4,14 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Tests\Behat\Vehicle\Park;
 
-use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Step\Given;
 use Behat\Step\When;
 use Behat\Step\Then;
+use Punt\Fleet\Tests\Behat\Vehicle\SharedVehicleContext;
 
-class ParkVehicleContext implements Context
+class ParkVehicleContext extends SharedVehicleContext
 {
-    #[Given('my fleet')]
-    public function myFleet(): void
-    {
-        throw new PendingException();
-    }
-
-    #[Given('a vehicle')]
-    public function aVehicle(): void
-    {
-        throw new PendingException();
-    }
-
-    #[Given('I have registered this vehicle into my fleet')]
-    public function iHaveRegisteredThisVehicleIntoMyFleet(): void
-    {
-        throw new PendingException();
-    }
-
     #[Given('a location')]
     public function aLocation(): void
     {

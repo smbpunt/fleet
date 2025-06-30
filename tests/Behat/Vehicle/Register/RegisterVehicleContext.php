@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Tests\Behat\Vehicle\Register;
 
-use Behat\Behat\Context\Context;
 use Behat\Step\Given;
 use Behat\Step\When;
 use Behat\Step\Then;
@@ -15,33 +14,13 @@ use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
 use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
 use Punt\Fleet\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
 use Punt\Fleet\Domain\Model\Fleet;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Tests\Behat\ContainerAwareTrait;
+use Punt\Fleet\Tests\Behat\Vehicle\SharedVehicleContext;
 use RuntimeException;
 
-class RegisterVehicleContext implements Context
+class RegisterVehicleContext extends SharedVehicleContext
 {
-    use ContainerAwareTrait;
-
-    private ?Vehicle $vehicle = null;
-    private ?Fleet $fleet = null;
     private ?Fleet $anotherFleet = null;
     private ?VehicleAlreadyRegisteredInFleetException $vehicleAlreadyRegisteredInFleetException = null;
-
-    #[Given('my fleet')]
-    public function myFleet(): void
-    {
-        $registerFleet = new RegisterFleetCommand('app-user');
-        /** @var CommandBusInterface $bus */
-        $bus = $this->container->get(CommandBusInterface::class);
-        $this->fleet = $bus->dispatch($registerFleet);
-    }
-
-    #[Given('a vehicle')]
-    public function aVehicle(): void
-    {
-        $this->vehicle = Vehicle::create('ABC-123');
-    }
 
     #[Given('the fleet of another user')]
     public function theFleetOfAnotherUser(): void
@@ -50,15 +29,6 @@ class RegisterVehicleContext implements Context
         /** @var CommandBusInterface $bus */
         $bus = $this->container->get(CommandBusInterface::class);
         $this->anotherFleet = $bus->dispatch($registerFleet);
-    }
-
-    #[Given('I have registered this vehicle into my fleet')]
-    public function iHaveRegisteredThisVehicleIntoMyFleet(): void
-    {
-        $registerVehicle = new RegisterVehicleCommand($this->fleet->getUserId(), $this->vehicle->getPlateNumber());
-        /** @var CommandBusInterface $bus */
-        $bus = $this->container->get(CommandBusInterface::class);
-        $bus->dispatch($registerVehicle);
     }
 
     #[Given('this vehicle has been registered into the other user\'s fleet')]
@@ -106,13 +76,5 @@ class RegisterVehicleContext implements Context
         $this->vehicleAlreadyRegisteredInFleetException ?? throw new RuntimeException(
             'I should be informed this this vehicle has already been registered into my fleet'
         );
-    }
-
-    private function registerVehicleInFleet(Fleet $fleet, Vehicle $vehicle): void
-    {
-        $registerVehicle = new RegisterVehicleCommand($fleet->getUserId(), $vehicle->getPlateNumber());
-        /** @var CommandBusInterface $bus */
-        $bus = $this->container->get(CommandBusInterface::class);
-        $bus->dispatch($registerVehicle);
     }
 }
