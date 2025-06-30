@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Infra\Container;
 
+use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
+use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
 use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
 use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
 use Punt\Fleet\Infra\Repository\FleetRepository;
 use Punt\Fleet\Infra\Repository\VehicleRepository;
+use Punt\Fleet\Infra\Shared\Bus\CommandBus;
+use Punt\Fleet\Infra\Shared\Bus\QueryBus;
 
 class Container implements ContainerInterface
 {
@@ -30,9 +34,20 @@ class Container implements ContainerInterface
 
     public static function boot(): self
     {
-        return new self([
+        $container = new self([
             FleetRepositoryInterface::class => new FleetRepository(),
             VehicleRepositoryInterface::class => new VehicleRepository(),
         ]);
+
+        // Commands
+        $container->set(CommandBusInterface::class, new CommandBus($container));
+        //        $container->set(RegisterFleetCommand::class, new RegisterFleetCommandHandler($container));
+        //        $container->set(RegisterVehicleCommand::class, new RegisterVehicleCommandHandler($container));
+
+        // Queries
+        $container->set(QueryBusInterface::class, new QueryBus($container));
+        //        $container->set(FindFleetByUserIdQuery::class, new FindFleetByUserIdQueryHandler($container));
+
+        return $container;
     }
 }

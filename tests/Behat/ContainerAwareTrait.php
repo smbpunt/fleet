@@ -7,7 +7,7 @@ namespace Punt\Fleet\Tests\Behat;
 use Punt\Fleet\Infra\Container\Container;
 use Punt\Fleet\Infra\Container\ContainerInterface;
 
-trait BootContainerTrait
+trait ContainerAwareTrait
 {
     private ContainerInterface $container;
 
