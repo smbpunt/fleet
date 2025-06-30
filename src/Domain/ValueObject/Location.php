@@ -47,4 +47,14 @@ final readonly class Location
             && $this->longitude === $other->longitude
             && $this->altitude === $other->altitude;
     }
+
+    public function __toString(): string
+    {
+        return sprintf(
+            'Location(latitude: %f, longitude: %f, altitude: %s)',
+            $this->latitude,
+            $this->longitude,
+            null !== $this->altitude ? (string) $this->altitude : 'null'
+        );
+    }
 }
