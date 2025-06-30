@@ -35,7 +35,7 @@ final class Fleet
         return $this;
     }
 
-    public function hasVehiculeRegistered(Vehicle $vehicle): bool
+    public function hasVehicleRegistered(Vehicle $vehicle): bool
     {
         foreach ($this->vehicles as $existingVehicle) {
             if ($existingVehicle->getPlateNumber() === $vehicle->getPlateNumber()) {

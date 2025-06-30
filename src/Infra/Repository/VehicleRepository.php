@@ -19,7 +19,7 @@ class VehicleRepository implements VehicleRepositoryInterface
         $this->vehicles[$vehicle->getPlateNumber()] = $vehicle;
     }
 
-    public function findByPlate(string $plateNumber): ?Vehicle
+    public function findByPlateNumber(string $plateNumber): ?Vehicle
     {
         return $this->vehicles[$plateNumber] ?? null;
     }

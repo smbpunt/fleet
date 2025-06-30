@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Infra\Container;
 
+use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommand;
+use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommandHandler;
+use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
+use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommandHandler;
+use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQuery;
+use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQueryHandler;
 use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
 use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
 use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
@@ -41,12 +47,12 @@ class Container implements ContainerInterface
 
         // Commands
         $container->set(CommandBusInterface::class, new CommandBus($container));
-        //        $container->set(RegisterFleetCommand::class, new RegisterFleetCommandHandler($container));
-        //        $container->set(RegisterVehicleCommand::class, new RegisterVehicleCommandHandler($container));
+        $container->set(RegisterFleetCommand::class, new RegisterFleetCommandHandler($container));
+        $container->set(RegisterVehicleCommand::class, new RegisterVehicleCommandHandler($container));
 
         // Queries
         $container->set(QueryBusInterface::class, new QueryBus($container));
-        //        $container->set(FindFleetByUserIdQuery::class, new FindFleetByUserIdQueryHandler($container));
+        $container->set(FindFleetByUserIdQuery::class, new FindFleetByUserIdQueryHandler($container));
 
         return $container;
     }
