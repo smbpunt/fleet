@@ -6,6 +6,8 @@ namespace Punt\Fleet\Infra\Container;
 
 use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommand;
 use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommandHandler;
+use Punt\Fleet\App\Command\Vehicle\Park\ParkVehicleCommand;
+use Punt\Fleet\App\Command\Vehicle\Park\ParkVehicleCommandHandler;
 use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
 use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommandHandler;
 use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQuery;
@@ -49,6 +51,7 @@ class Container implements ContainerInterface
         $container->set(CommandBusInterface::class, new CommandBus($container));
         $container->set(RegisterFleetCommand::class, new RegisterFleetCommandHandler($container));
         $container->set(RegisterVehicleCommand::class, new RegisterVehicleCommandHandler($container));
+        $container->set(ParkVehicleCommand::class, new ParkVehicleCommandHandler($container));
 
         // Queries
         $container->set(QueryBusInterface::class, new QueryBus($container));
