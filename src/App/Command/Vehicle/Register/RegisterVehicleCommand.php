@@ -6,7 +6,7 @@ namespace Punt\Fleet\App\Command\Vehicle\Register;
 
 use Punt\Fleet\App\Command\CommandInterface;
 
-class RegisterVehicleCommand implements CommandInterface
+final readonly class RegisterVehicleCommand implements CommandInterface
 {
     public function __construct(
         public string $userId,

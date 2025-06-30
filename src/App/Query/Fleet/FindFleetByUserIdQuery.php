@@ -6,7 +6,7 @@ namespace Punt\Fleet\App\Query\Fleet;
 
 use Punt\Fleet\App\Query\QueryInterface;
 
-class FindFleetByUserIdQuery implements QueryInterface
+final readonly class FindFleetByUserIdQuery implements QueryInterface
 {
     public function __construct(
         public string $userId,

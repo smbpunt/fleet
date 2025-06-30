@@ -12,6 +12,8 @@ use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
 use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommandHandler;
 use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQuery;
 use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQueryHandler;
+use Punt\Fleet\App\Query\Vehicle\FindVehicleByPlateQuery;
+use Punt\Fleet\App\Query\Vehicle\FindVehicleByPlateQueryHandler;
 use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
 use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
 use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
@@ -56,6 +58,7 @@ class Container implements ContainerInterface
         // Queries
         $container->set(QueryBusInterface::class, new QueryBus($container));
         $container->set(FindFleetByUserIdQuery::class, new FindFleetByUserIdQueryHandler($container));
+        $container->set(FindVehicleByPlateQuery::class, new FindVehicleByPlateQueryHandler($container));
 
         return $container;
     }
