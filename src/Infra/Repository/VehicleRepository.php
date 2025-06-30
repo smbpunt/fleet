@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Infra\Repository;
 
+use Punt\Fleet\Domain\Exception\Vehicle\VehicleNotFoundException;
 use Punt\Fleet\Domain\Model\Vehicle;
 use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
 
@@ -19,8 +20,8 @@ class VehicleRepository implements VehicleRepositoryInterface
         $this->vehicles[$vehicle->getPlateNumber()] = $vehicle;
     }
 
-    public function findByPlateNumber(string $plateNumber): ?Vehicle
+    public function findByPlateNumber(string $plateNumber): Vehicle
     {
-        return $this->vehicles[$plateNumber] ?? null;
+        return $this->vehicles[$plateNumber] ?? throw new VehicleNotFoundException($plateNumber);
     }
 }

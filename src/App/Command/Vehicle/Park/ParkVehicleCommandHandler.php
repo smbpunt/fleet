@@ -10,7 +10,6 @@ use Punt\Fleet\Domain\Model\Vehicle;
 use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
 use Punt\Fleet\Domain\ValueObject\Location;
 use Punt\Fleet\Infra\Container\ContainerInterface;
-use RuntimeException;
 
 class ParkVehicleCommandHandler implements CommandHandlerInterface
 {
@@ -30,10 +29,6 @@ class ParkVehicleCommandHandler implements CommandHandlerInterface
         /** @var VehicleRepositoryInterface $vehicleRepository */
         $vehicleRepository = $this->container->get(VehicleRepositoryInterface::class);
         $vehicle = $vehicleRepository->findByPlateNumber($command->plateNumber);
-        if (null === $vehicle) {
-            // @todo exception domain/logic ?
-            throw new RuntimeException('Vehicle not found with plate number: ' . $command->plateNumber);
-        }
 
         $vehicle->park($location);
         $vehicleRepository->save($vehicle);

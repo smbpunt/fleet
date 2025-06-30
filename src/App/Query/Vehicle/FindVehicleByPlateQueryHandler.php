@@ -16,9 +16,9 @@ class FindVehicleByPlateQueryHandler implements QueryHandlerInterface
 
     /**
      * @param FindVehicleByPlateQuery $query
-     * @return Vehicle|null
+     * @return Vehicle
      */
-    public function __invoke(QueryInterface $query): ?Vehicle
+    public function __invoke(QueryInterface $query): Vehicle
     {
         /** @var VehicleRepositoryInterface $fleetRepository */
         $fleetRepository = $this->container->get(VehicleRepositoryInterface::class);

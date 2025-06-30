@@ -16,9 +16,9 @@ readonly class FindFleetByUserIdQueryHandler implements QueryHandlerInterface
 
     /**
      * @param FindFleetByUserIdQuery $query
-     * @return Fleet|null
+     * @return Fleet
      */
-    public function __invoke(QueryInterface $query): ?Fleet
+    public function __invoke(QueryInterface $query): Fleet
     {
         /** @var FleetRepositoryInterface $fleetRepository */
         $fleetRepository = $this->container->get(FleetRepositoryInterface::class);

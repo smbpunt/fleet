@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Punt\Fleet\Infra\Repository;
 
+use Punt\Fleet\Domain\Exception\Fleet\FleetNotFoundException;
 use Punt\Fleet\Domain\Model\Fleet;
 use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
 
@@ -19,8 +20,8 @@ class FleetRepository implements FleetRepositoryInterface
         $this->fleets[$fleet->getUserId()] = $fleet;
     }
 
-    public function findByUserId(string $userId): ?Fleet
+    public function findByUserId(string $userId): Fleet
     {
-        return $this->fleets[$userId] ?? null;
+        return $this->fleets[$userId] ?? throw new FleetNotFoundException($userId);
     }
 }
