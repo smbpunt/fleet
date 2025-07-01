@@ -18,8 +18,8 @@ use App\Application\Shared\Bus\CommandBusInterface;
 use App\Application\Shared\Bus\QueryBusInterface;
 use App\Domain\Repository\FleetRepositoryInterface;
 use App\Domain\Repository\VehicleRepositoryInterface;
-use App\Infra\Repository\FleetRepository;
-use App\Infra\Repository\VehicleRepository;
+use App\Infra\Repository\InMemory\InMemoryFleetRepository;
+use App\Infra\Repository\InMemory\InMemoryVehicleRepository;
 use App\Infra\Shared\Bus\CommandBus;
 use App\Infra\Shared\Bus\QueryBus;
 
@@ -45,8 +45,8 @@ class Container implements ContainerInterface
     public static function boot(): self
     {
         $container = new self([
-            FleetRepositoryInterface::class => new FleetRepository(),
-            VehicleRepositoryInterface::class => new VehicleRepository(),
+            FleetRepositoryInterface::class => new InMemoryFleetRepository(),
+            VehicleRepositoryInterface::class => new InMemoryVehicleRepository(),
         ]);
 
         // Commands

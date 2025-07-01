@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Infra\Repository;
+namespace App\Infra\Repository\InMemory;
 
 use App\Domain\Exception\Fleet\FleetNotFoundException;
 use App\Domain\Model\Fleet;
 use App\Domain\Repository\FleetRepositoryInterface;
 
-class FleetRepository implements FleetRepositoryInterface
+class InMemoryFleetRepository implements FleetRepositoryInterface
 {
     /**
      * @var array<string, Fleet>

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Infra\Repository;
+namespace App\Infra\Repository\InMemory;
 
 use App\Domain\Exception\Vehicle\VehicleNotFoundException;
 use App\Domain\Model\Vehicle;
 use App\Domain\Repository\VehicleRepositoryInterface;
 
-class VehicleRepository implements VehicleRepositoryInterface
+class InMemoryVehicleRepository implements VehicleRepositoryInterface
 {
     /**
      * @var array<string, Vehicle>
