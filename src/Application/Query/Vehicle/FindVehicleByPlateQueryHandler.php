@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Query\Vehicle;
+namespace App\Application\Query\Vehicle;
 
-use Punt\Fleet\App\Query\QueryHandlerInterface;
-use Punt\Fleet\App\Query\QueryInterface;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Query\QueryHandlerInterface;
+use App\Application\Query\QueryInterface;
+use App\Domain\Model\Vehicle;
+use App\Domain\Repository\VehicleRepositoryInterface;
+use App\Infra\Container\ContainerInterface;
 
 class FindVehicleByPlateQueryHandler implements QueryHandlerInterface
 {

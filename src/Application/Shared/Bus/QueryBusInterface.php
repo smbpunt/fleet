@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Shared\Bus;
+namespace App\Application\Shared\Bus;
 
-use Punt\Fleet\App\Query\QueryInterface;
+use App\Application\Query\QueryInterface;
 
 interface QueryBusInterface
 {

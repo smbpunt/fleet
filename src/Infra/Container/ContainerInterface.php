@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Infra\Container;
+namespace App\Infra\Container;
 
 interface ContainerInterface
 {

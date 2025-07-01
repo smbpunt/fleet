@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Infra\Container;
+namespace App\Infra\Container;
 
-use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommand;
-use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommandHandler;
-use Punt\Fleet\App\Command\Vehicle\Park\ParkVehicleCommand;
-use Punt\Fleet\App\Command\Vehicle\Park\ParkVehicleCommandHandler;
-use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
-use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommandHandler;
-use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQuery;
-use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQueryHandler;
-use Punt\Fleet\App\Query\Vehicle\FindVehicleByPlateQuery;
-use Punt\Fleet\App\Query\Vehicle\FindVehicleByPlateQueryHandler;
-use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
-use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
-use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
-use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
-use Punt\Fleet\Infra\Repository\FleetRepository;
-use Punt\Fleet\Infra\Repository\VehicleRepository;
-use Punt\Fleet\Infra\Shared\Bus\CommandBus;
-use Punt\Fleet\Infra\Shared\Bus\QueryBus;
+use App\Application\Command\Fleet\Register\RegisterFleetCommand;
+use App\Application\Command\Fleet\Register\RegisterFleetCommandHandler;
+use App\Application\Command\Vehicle\Park\ParkVehicleCommand;
+use App\Application\Command\Vehicle\Park\ParkVehicleCommandHandler;
+use App\Application\Command\Vehicle\Register\RegisterVehicleCommand;
+use App\Application\Command\Vehicle\Register\RegisterVehicleCommandHandler;
+use App\Application\Query\Fleet\FindFleetByUserIdQuery;
+use App\Application\Query\Fleet\FindFleetByUserIdQueryHandler;
+use App\Application\Query\Vehicle\FindVehicleByPlateQuery;
+use App\Application\Query\Vehicle\FindVehicleByPlateQueryHandler;
+use App\Application\Shared\Bus\CommandBusInterface;
+use App\Application\Shared\Bus\QueryBusInterface;
+use App\Domain\Repository\FleetRepositoryInterface;
+use App\Domain\Repository\VehicleRepositoryInterface;
+use App\Infra\Repository\FleetRepository;
+use App\Infra\Repository\VehicleRepository;
+use App\Infra\Shared\Bus\CommandBus;
+use App\Infra\Shared\Bus\QueryBus;
 
 class Container implements ContainerInterface
 {

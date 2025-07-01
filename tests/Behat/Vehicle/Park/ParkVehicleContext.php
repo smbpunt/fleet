@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Tests\Behat\Vehicle\Park;
+namespace App\Tests\Behat\Vehicle\Park;
 
 use Behat\Step\Given;
 use Behat\Step\When;
 use Behat\Step\Then;
-use Punt\Fleet\App\Command\Vehicle\Park\ParkVehicleCommand;
-use Punt\Fleet\App\Query\Vehicle\FindVehicleByPlateQuery;
-use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
-use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
-use Punt\Fleet\Domain\Exception\Vehicle\AlreadyParkedAtThisLocationException;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Domain\ValueObject\Location;
-use Punt\Fleet\Tests\Behat\Vehicle\SharedVehicleContext;
+use App\Application\Command\Vehicle\Park\ParkVehicleCommand;
+use App\Application\Query\Vehicle\FindVehicleByPlateQuery;
+use App\Application\Shared\Bus\CommandBusInterface;
+use App\Application\Shared\Bus\QueryBusInterface;
+use App\Domain\Exception\Vehicle\AlreadyParkedAtThisLocationException;
+use App\Domain\Model\Vehicle;
+use App\Domain\ValueObject\Location;
+use App\Tests\Behat\Vehicle\SharedVehicleContext;
 use RuntimeException;
 
 class ParkVehicleContext extends SharedVehicleContext

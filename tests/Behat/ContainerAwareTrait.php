@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Tests\Behat;
+namespace App\Tests\Behat;
 
-use Punt\Fleet\Infra\Container\Container;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Infra\Container\Container;
+use App\Infra\Container\ContainerInterface;
 
 trait ContainerAwareTrait
 {

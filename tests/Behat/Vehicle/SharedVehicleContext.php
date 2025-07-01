@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Tests\Behat\Vehicle;
+namespace App\Tests\Behat\Vehicle;
 
 use Behat\Behat\Context\Context;
 use Behat\Step\Given;
-use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommand;
-use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
-use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
-use Punt\Fleet\Domain\Model\Fleet;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Tests\Behat\ContainerAwareTrait;
+use App\Application\Command\Fleet\Register\RegisterFleetCommand;
+use App\Application\Command\Vehicle\Register\RegisterVehicleCommand;
+use App\Application\Shared\Bus\CommandBusInterface;
+use App\Domain\Model\Fleet;
+use App\Domain\Model\Vehicle;
+use App\Tests\Behat\ContainerAwareTrait;
 
 abstract class SharedVehicleContext implements Context
 {

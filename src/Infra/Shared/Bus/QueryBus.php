@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Infra\Shared\Bus;
+namespace App\Infra\Shared\Bus;
 
 use LogicException;
-use Punt\Fleet\App\Query\QueryHandlerInterface;
-use Punt\Fleet\App\Query\QueryInterface;
-use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Query\QueryHandlerInterface;
+use App\Application\Query\QueryInterface;
+use App\Application\Shared\Bus\QueryBusInterface;
+use App\Infra\Container\ContainerInterface;
 
 final readonly class QueryBus implements QueryBusInterface
 {

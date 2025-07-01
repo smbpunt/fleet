@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Infra\Repository;
+namespace App\Infra\Repository;
 
-use Punt\Fleet\Domain\Exception\Vehicle\VehicleNotFoundException;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
+use App\Domain\Exception\Vehicle\VehicleNotFoundException;
+use App\Domain\Model\Vehicle;
+use App\Domain\Repository\VehicleRepositoryInterface;
 
 class VehicleRepository implements VehicleRepositoryInterface
 {

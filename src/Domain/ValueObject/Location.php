@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\ValueObject;
+namespace App\Domain\ValueObject;
 
 use InvalidArgumentException;
 

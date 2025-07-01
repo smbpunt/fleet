@@ -4,9 +4,9 @@ default:
       paths:
         - '%paths.base%/tests/Behat/Vehicle/Park'
       contexts:
-        - Punt\Fleet\Tests\Behat\Vehicle\Park\ParkVehicleContext
+        - App\Tests\Behat\Vehicle\Park\ParkVehicleContext
     register_vehicle:
       paths:
         - '%paths.base%/tests/Behat/Vehicle/Register'
       contexts:
-        - Punt\Fleet\Tests\Behat\Vehicle\Register\RegisterVehicleContext
+        - App\Tests\Behat\Vehicle\Register\RegisterVehicleContext

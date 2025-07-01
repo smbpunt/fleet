@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Command\Fleet\Register;
+namespace App\Application\Command\Fleet\Register;
 
-use Punt\Fleet\App\Command\CommandInterface;
+use App\Application\Command\CommandInterface;
 
 final readonly class RegisterFleetCommand implements CommandInterface
 {

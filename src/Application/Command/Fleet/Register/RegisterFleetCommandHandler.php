@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Command\Fleet\Register;
+namespace App\Application\Command\Fleet\Register;
 
-use Punt\Fleet\App\Command\CommandInterface;
-use Punt\Fleet\App\Command\CommandHandlerInterface;
-use Punt\Fleet\Domain\Model\Fleet;
-use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Command\CommandInterface;
+use App\Application\Command\CommandHandlerInterface;
+use App\Domain\Model\Fleet;
+use App\Domain\Repository\FleetRepositoryInterface;
+use App\Infra\Container\ContainerInterface;
 
 readonly class RegisterFleetCommandHandler implements CommandHandlerInterface
 {

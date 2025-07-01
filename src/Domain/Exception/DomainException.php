@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\Exception;
+namespace App\Domain\Exception;
 
 use DomainException as BaseDomainException;
 

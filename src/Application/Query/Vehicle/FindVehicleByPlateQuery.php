@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Query\Vehicle;
+namespace App\Application\Query\Vehicle;
 
-use Punt\Fleet\App\Query\QueryInterface;
+use App\Application\Query\QueryInterface;
 
 final readonly class FindVehicleByPlateQuery implements QueryInterface
 {

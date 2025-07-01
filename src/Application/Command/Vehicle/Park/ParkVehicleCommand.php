@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Command\Vehicle\Park;
+namespace App\Application\Command\Vehicle\Park;
 
-use Punt\Fleet\App\Command\CommandInterface;
+use App\Application\Command\CommandInterface;
 
 final readonly class ParkVehicleCommand implements CommandInterface
 {

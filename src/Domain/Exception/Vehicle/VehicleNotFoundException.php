@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\Exception\Vehicle;
+namespace App\Domain\Exception\Vehicle;
 
-use Punt\Fleet\Domain\Exception\DomainException;
+use App\Domain\Exception\DomainException;
 
 class VehicleNotFoundException extends DomainException
 {

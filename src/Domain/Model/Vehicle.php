@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\Model;
+namespace App\Domain\Model;
 
-use Punt\Fleet\Domain\Exception\Vehicle\AlreadyParkedAtThisLocationException;
-use Punt\Fleet\Domain\ValueObject\Location;
+use App\Domain\Exception\Vehicle\AlreadyParkedAtThisLocationException;
+use App\Domain\ValueObject\Location;
 
 final class Vehicle
 {

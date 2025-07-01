@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\Repository;
+namespace App\Domain\Repository;
 
-use Punt\Fleet\Domain\Model\Vehicle;
+use App\Domain\Model\Vehicle;
 
 interface VehicleRepositoryInterface
 {

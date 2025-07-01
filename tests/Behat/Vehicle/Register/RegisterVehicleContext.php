@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Tests\Behat\Vehicle\Register;
+namespace App\Tests\Behat\Vehicle\Register;
 
 use Behat\Step\Given;
 use Behat\Step\When;
 use Behat\Step\Then;
-use Punt\Fleet\App\Command\Fleet\Register\RegisterFleetCommand;
-use Punt\Fleet\App\Command\Vehicle\Register\RegisterVehicleCommand;
-use Punt\Fleet\App\Query\Fleet\FindFleetByUserIdQuery;
-use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
-use Punt\Fleet\App\Shared\Bus\QueryBusInterface;
-use Punt\Fleet\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
-use Punt\Fleet\Domain\Model\Fleet;
-use Punt\Fleet\Tests\Behat\Vehicle\SharedVehicleContext;
+use App\Application\Command\Fleet\Register\RegisterFleetCommand;
+use App\Application\Command\Vehicle\Register\RegisterVehicleCommand;
+use App\Application\Query\Fleet\FindFleetByUserIdQuery;
+use App\Application\Shared\Bus\CommandBusInterface;
+use App\Application\Shared\Bus\QueryBusInterface;
+use App\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
+use App\Domain\Model\Fleet;
+use App\Tests\Behat\Vehicle\SharedVehicleContext;
 use RuntimeException;
 
 class RegisterVehicleContext extends SharedVehicleContext

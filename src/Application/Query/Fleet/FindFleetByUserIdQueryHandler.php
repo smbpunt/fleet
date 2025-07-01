@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Query\Fleet;
+namespace App\Application\Query\Fleet;
 
-use Punt\Fleet\App\Query\QueryHandlerInterface;
-use Punt\Fleet\App\Query\QueryInterface;
-use Punt\Fleet\Domain\Model\Fleet;
-use Punt\Fleet\Domain\Repository\FleetRepositoryInterface;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Query\QueryHandlerInterface;
+use App\Application\Query\QueryInterface;
+use App\Domain\Model\Fleet;
+use App\Domain\Repository\FleetRepositoryInterface;
+use App\Infra\Container\ContainerInterface;
 
 readonly class FindFleetByUserIdQueryHandler implements QueryHandlerInterface
 {

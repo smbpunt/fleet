@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Query\Fleet;
+namespace App\Application\Query\Fleet;
 
-use Punt\Fleet\App\Query\QueryInterface;
+use App\Application\Query\QueryInterface;
 
 final readonly class FindFleetByUserIdQuery implements QueryInterface
 {

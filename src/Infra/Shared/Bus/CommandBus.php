@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Infra\Shared\Bus;
+namespace App\Infra\Shared\Bus;
 
 use LogicException;
-use Punt\Fleet\App\Command\CommandInterface;
-use Punt\Fleet\App\Command\CommandHandlerInterface;
-use Punt\Fleet\App\Shared\Bus\CommandBusInterface;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Command\CommandInterface;
+use App\Application\Command\CommandHandlerInterface;
+use App\Application\Shared\Bus\CommandBusInterface;
+use App\Infra\Container\ContainerInterface;
 
 final readonly class CommandBus implements CommandBusInterface
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Command\Vehicle\Park;
+namespace App\Application\Command\Vehicle\Park;
 
-use Punt\Fleet\App\Command\CommandInterface;
-use Punt\Fleet\App\Command\CommandHandlerInterface;
-use Punt\Fleet\Domain\Model\Vehicle;
-use Punt\Fleet\Domain\Repository\VehicleRepositoryInterface;
-use Punt\Fleet\Domain\ValueObject\Location;
-use Punt\Fleet\Infra\Container\ContainerInterface;
+use App\Application\Command\CommandInterface;
+use App\Application\Command\CommandHandlerInterface;
+use App\Domain\Model\Vehicle;
+use App\Domain\Repository\VehicleRepositoryInterface;
+use App\Domain\ValueObject\Location;
+use App\Infra\Container\ContainerInterface;
 
 class ParkVehicleCommandHandler implements CommandHandlerInterface
 {

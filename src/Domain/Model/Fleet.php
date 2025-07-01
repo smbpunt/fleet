@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\Domain\Model;
+namespace App\Domain\Model;
 
-use Punt\Fleet\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
+use App\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
 
 final class Fleet
 {

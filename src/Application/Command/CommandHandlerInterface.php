@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Punt\Fleet\App\Command;
+namespace App\Application\Command;
 
 interface CommandHandlerInterface
 {
