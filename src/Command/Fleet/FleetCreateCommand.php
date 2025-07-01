@@ -22,8 +22,7 @@ class FleetCreateCommand extends Command
 {
     public function __construct(
         private readonly MessageBusInterface $bus,
-    )
-    {
+    ) {
         parent::__construct();
     }
 

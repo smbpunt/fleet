@@ -15,8 +15,7 @@ final class Fleet
 
     private function __construct(
         private readonly string $userId,
-    )
-    {
+    ) {
         $this->vehicles = [];
     }
 
