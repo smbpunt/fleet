@@ -27,7 +27,6 @@ class DoctrineVehicleRepository extends ServiceEntityRepository implements Vehic
         $this->getEntityManager()->persist($vehicle);
         if ($flush) {
             $this->getEntityManager()->flush();
-            dump($vehicle);
         }
     }
 

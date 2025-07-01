@@ -10,6 +10,32 @@ https://github.com/fulll/hiring
 make install
 ```
 
+## Usage
+
+```bash
+./fleet create <userId>
+
+./fleet register-vehicle <fleetId> <vehiclePlateNumber>
+
+./fleet localize-vehicle <vehiclePlateNumber> lat lng [alt]
+```
+
+### Examples
+
+```bash
+# Create a fleet for user 123
+./fleet create 123
+
+# Register a vehicle with plate number "ABC-123" to fleet 456
+./fleet register-vehicle 123 ABC-123
+
+# Set location for vehicle "ABC-123" at coordinates 48.8566, 2.3522
+./fleet localize-vehicle ABC-123 48.8566 2.3522
+
+# Set location with altitude
+./fleet localize-vehicle ABC-123 48.8566 2.3522 35
+```
+
 ## Outils utilisés
 
 - PHP CS Fixer pour le formatage du code
