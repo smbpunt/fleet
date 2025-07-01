@@ -26,6 +26,15 @@ help:
 	@echo "  phpmd                 - Run PHPMD with custom arguments"
 
 #########
+# Installation
+#########
+
+install:
+	composer install --no-interaction --optimize-autoloader
+	php bin/console doctrine:database:create
+	php bin/console doctrine:migrations:migrate --no-interaction
+
+#########
 # CI
 #########
 
