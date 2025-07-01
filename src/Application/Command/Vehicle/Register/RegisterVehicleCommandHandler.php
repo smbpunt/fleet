@@ -19,7 +19,9 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 #[AsMessageHandler(handles: RegisterVehicleCommand::class)]
 readonly class RegisterVehicleCommandHandler implements CommandHandlerInterface
 {
-    public function __construct(private PsrContainerInterface $container) {}
+    public function __construct(private PsrContainerInterface $container)
+    {
+    }
 
     /**
      * @param RegisterVehicleCommand $command
@@ -35,7 +37,7 @@ readonly class RegisterVehicleCommandHandler implements CommandHandlerInterface
             $vehicle = $vehicleRepository->findByPlateNumber($command->plateNumber);
         } catch (VehicleNotFoundException) {
             $vehicle = Vehicle::create($command->plateNumber);
-            $vehicleRepository->save($vehicle);
+            $vehicleRepository->save($vehicle, true);
         }
 
         /** @var FleetRepositoryInterface $fleetRepository */
@@ -43,7 +45,7 @@ readonly class RegisterVehicleCommandHandler implements CommandHandlerInterface
         $fleet = $fleetRepository->findByUserId($command->userId);
 
         $fleet->registerVehicle($vehicle);
-        $fleetRepository->save($fleet);
+        $fleetRepository->save($fleet, true);
         return $fleet;
     }
 }
