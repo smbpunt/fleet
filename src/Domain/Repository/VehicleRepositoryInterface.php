@@ -8,7 +8,7 @@ use App\Domain\Model\Vehicle;
 
 interface VehicleRepositoryInterface
 {
-    public function save(Vehicle $vehicle): void;
+    public function save(Vehicle $vehicle, bool $flush = false): void;
 
     public function findByPlateNumber(string $plateNumber): Vehicle;
 }

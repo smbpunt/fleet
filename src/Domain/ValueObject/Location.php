@@ -8,20 +8,31 @@ use InvalidArgumentException;
 
 final readonly class Location
 {
+    private ?float $latitude;
+    private ?float $longitude;
+    private ?float $altitude;
+
     public function __construct(
-        private float  $latitude,
-        private float  $longitude,
-        private ?float $altitude = null,
+        ?float $latitude,
+        ?float $longitude,
+        ?float $altitude = null,
     ) {
-        $this->validateCoordinates();
+        $this->validateCoordinates($latitude, $longitude);
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->altitude = $altitude;
     }
 
-    private function validateCoordinates(): void
+    private function validateCoordinates(?float $latitude, ?float $longitude): void
     {
-        if ($this->latitude < -90 || $this->latitude > 90) {
+        if (null === $latitude || null === $longitude) {
+            return;
+        }
+
+        if ($latitude < -90 || $latitude > 90) {
             throw new InvalidArgumentException('Invalid latitude value');
         }
-        if ($this->longitude < -180 || $this->longitude > 180) {
+        if ($longitude < -180 || $longitude > 180) {
             throw new InvalidArgumentException('Invalid longitude value');
         }
     }

@@ -15,7 +15,7 @@ class InMemoryFleetRepository implements FleetRepositoryInterface
      */
     private array $fleets = [];
 
-    public function save(Fleet $fleet): void
+    public function save(Fleet $fleet, bool $flush = false): void
     {
         $this->fleets[$fleet->getUserId()] = $fleet;
     }

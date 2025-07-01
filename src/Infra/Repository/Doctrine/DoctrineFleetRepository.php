@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infra\Repository\Doctrine;
 
 use App\Domain\Exception\Fleet\FleetNotFoundException;
@@ -9,6 +11,9 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 
+/**
+ * @extends ServiceEntityRepository<Fleet>
+ */
 #[AsAlias(FleetRepositoryInterface::class, true)]
 class DoctrineFleetRepository extends ServiceEntityRepository implements FleetRepositoryInterface
 {
@@ -17,13 +22,10 @@ class DoctrineFleetRepository extends ServiceEntityRepository implements FleetRe
         parent::__construct($registry, Fleet::class);
     }
 
-
-    public function save(Fleet $fleet, bool $flush = true): void
+    public function save(Fleet $fleet, bool $flush = false): void
     {
         $this->getEntityManager()->persist($fleet);
         if ($flush) {
-            echo 'Saving fleet for user: ' . $fleet->getUserId() . PHP_EOL;
-
             $this->getEntityManager()->flush();
         }
     }

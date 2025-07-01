@@ -9,7 +9,7 @@ use App\Domain\ValueObject\Location;
 
 final class Vehicle
 {
-    public ?Location $location = null;
+    private ?Location $location = null;
 
     private function __construct(
         private readonly string $plateNumber,
@@ -22,16 +22,22 @@ final class Vehicle
 
     public function park(Location $location): self
     {
-        if (null !== $this->location && $this->location->equals($location)) {
+        if (null !== $this->location && $location->equals($this->location)) {
             throw new AlreadyParkedAtThisLocationException($this->plateNumber);
         }
 
         $this->location = $location;
+
         return $this;
     }
 
     public function getPlateNumber(): string
     {
         return $this->plateNumber;
+    }
+
+    public function getLocation(): ?Location
+    {
+        return $this->location;
     }
 }

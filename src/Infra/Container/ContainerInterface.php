@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Infra\Container;
 
-interface ContainerInterface
+use Psr\Container\ContainerInterface as PsrContainerInterface;
+
+interface ContainerInterface extends PsrContainerInterface
 {
     public function set(string $id, object $service): static;
 

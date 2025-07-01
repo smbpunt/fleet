@@ -15,7 +15,7 @@ class InMemoryVehicleRepository implements VehicleRepositoryInterface
      */
     private array $vehicles = [];
 
-    public function save(Vehicle $vehicle): void
+    public function save(Vehicle $vehicle, bool $flush = false): void
     {
         $this->vehicles[$vehicle->getPlateNumber()] = $vehicle;
     }

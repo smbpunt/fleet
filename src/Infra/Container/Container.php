@@ -62,4 +62,9 @@ class Container implements ContainerInterface
 
         return $container;
     }
+
+    public function has(string $id): bool
+    {
+        return isset($this->services[$id]);
+    }
 }

@@ -9,13 +9,16 @@ use App\Domain\Exception\Fleet\VehicleAlreadyRegisteredInFleetException;
 final class Fleet
 {
     /**
-     * @var Vehicle[]
+     * @var Vehicle[]|iterable
      */
-    private array $vehicles = [];
+    private iterable $vehicles;
 
     private function __construct(
         private readonly string $userId,
-    ) {}
+    )
+    {
+        $this->vehicles = [];
+    }
 
     public static function create(string $userId): self
     {

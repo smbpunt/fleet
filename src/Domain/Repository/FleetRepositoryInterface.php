@@ -8,7 +8,7 @@ use App\Domain\Model\Fleet;
 
 interface FleetRepositoryInterface
 {
-    public function save(Fleet $fleet): void;
+    public function save(Fleet $fleet, bool $flush = false): void;
 
     public function findByUserId(string $userId): Fleet;
 }

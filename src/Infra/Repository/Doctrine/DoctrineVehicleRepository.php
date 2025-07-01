@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infra\Repository\Doctrine;
 
 use App\Domain\Exception\Vehicle\VehicleNotFoundException;
@@ -9,6 +11,9 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 
+/**
+ * @extends ServiceEntityRepository<Vehicle>
+ */
 #[AsAlias(VehicleRepositoryInterface::class, true)]
 class DoctrineVehicleRepository extends ServiceEntityRepository implements VehicleRepositoryInterface
 {
@@ -17,12 +22,10 @@ class DoctrineVehicleRepository extends ServiceEntityRepository implements Vehic
         parent::__construct($registry, Vehicle::class);
     }
 
-    public function save(Vehicle $vehicle, bool $flush = true): void
+    public function save(Vehicle $vehicle, bool $flush = false): void
     {
         $this->getEntityManager()->persist($vehicle);
         if ($flush) {
-            echo 'Saving vehicle with plate number: ' . $vehicle->getPlateNumber() . PHP_EOL;
-
             $this->getEntityManager()->flush();
         }
     }

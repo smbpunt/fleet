@@ -47,12 +47,12 @@ class ParkVehicleContext extends SharedVehicleContext
             throw new RuntimeException('Vehicle not found');
         }
 
-        if (!$this->location->equals($vehicle->location)) {
+        if (!$this->location->equals($vehicle->getLocation())) {
             throw new RuntimeException(
                 sprintf(
                     'Expected vehicle location to be %s, but got %s',
                     $this->location,
-                    $vehicle->location
+                    $vehicle->getLocation()
                 )
             );
         }
