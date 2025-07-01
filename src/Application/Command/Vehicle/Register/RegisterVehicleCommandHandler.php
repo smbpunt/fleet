@@ -11,15 +11,21 @@ use App\Domain\Model\Fleet;
 use App\Domain\Model\Vehicle;
 use App\Domain\Repository\FleetRepositoryInterface;
 use App\Domain\Repository\VehicleRepositoryInterface;
-use App\Infra\Container\ContainerInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface as PsrContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
+#[AsMessageHandler(handles: RegisterVehicleCommand::class)]
 readonly class RegisterVehicleCommandHandler implements CommandHandlerInterface
 {
-    public function __construct(private ContainerInterface $container) {}
+    public function __construct(private PsrContainerInterface $container) {}
 
     /**
      * @param RegisterVehicleCommand $command
      * @return Fleet
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __invoke(CommandInterface $command): Fleet
     {
