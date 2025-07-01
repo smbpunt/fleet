@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Fleet management CLI script
+# This script provides a convenient interface to run Symfony fleet commands
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Function to display usage
+usage() {
+    echo "Usage:"
+    echo "  ./fleet create <userId>                                    # Create a new fleet for a user"
+    echo "  ./fleet register-vehicle <fleetId> <vehiclePlateNumber>    # Register a vehicle to a fleet"
+    echo "  ./fleet localize-vehicle <vehiclePlateNumber> lat lng [alt]  # Set vehicle location"
+    exit 1
+}
+
+# Check if no arguments provided
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+# Parse command
+case "$1" in
+    "create")
+        if [ $# -ne 2 ]; then
+            echo "Error: 'create' command requires exactly 1 argument: <userId>"
+            usage
+        fi
+        php "$SCRIPT_DIR/bin/console" fleet:create "$2"
+        ;;
+    
+    "register-vehicle")
+        if [ $# -ne 3 ]; then
+            echo "Error: 'register-vehicle' command requires exactly 2 arguments: <fleetId> <vehiclePlateNumber>"
+            usage
+        fi
+        # Note: The Symfony command expects userId, not fleetId, based on the implementation
+        php "$SCRIPT_DIR/bin/console" fleet:register-vehicle "$2" "$3"
+        ;;
+    
+    "localize-vehicle")
+        if [ $# -lt 4 ] || [ $# -gt 5 ]; then
+            echo "Error: 'localize-vehicle' command requires 3-4 arguments: <vehiclePlateNumber> lat lng [alt]"
+            usage
+        fi
+        if [ $# -eq 4 ]; then
+            php "$SCRIPT_DIR/bin/console" fleet:localize-vehicle "$2" "$3" "$4"
+        else
+            php "$SCRIPT_DIR/bin/console" fleet:localize-vehicle "$2" "$3" "$4" "$5"
+        fi
+        ;;
+    
+    *)
+        echo "Error: Unknown command '$1'"
+        usage
+        ;;
+esac
