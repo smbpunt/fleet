@@ -22,8 +22,7 @@ class FleetLocalizeVehicleCommand extends Command
 {
     public function __construct(
         private readonly MessageBusInterface $bus,
-    )
-    {
+    ) {
         parent::__construct();
     }
 
@@ -42,9 +41,9 @@ class FleetLocalizeVehicleCommand extends Command
 
         $parkVehicleCommand = new ParkVehicleCommand(
             $input->getArgument('plateNumber'),
-            (float)$input->getArgument('lat'),
-            (float)$input->getArgument('lng'),
-            $input->getArgument('alt') ? (float)$input->getArgument('alt') : null
+            (float) $input->getArgument('lat'),
+            (float) $input->getArgument('lng'),
+            $input->getArgument('alt') ? (float) $input->getArgument('alt') : null
         );
 
         try {

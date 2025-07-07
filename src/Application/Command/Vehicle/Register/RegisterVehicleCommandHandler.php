@@ -19,9 +19,7 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 #[AsMessageHandler(handles: RegisterVehicleCommand::class)]
 readonly class RegisterVehicleCommandHandler implements CommandHandlerInterface
 {
-    public function __construct(private PsrContainerInterface $container)
-    {
-    }
+    public function __construct(private PsrContainerInterface $container) {}
 
     /**
      * @param RegisterVehicleCommand $command
